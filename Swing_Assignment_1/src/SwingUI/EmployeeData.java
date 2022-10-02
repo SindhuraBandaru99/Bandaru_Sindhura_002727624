@@ -12,29 +12,34 @@ public class EmployeeData {
     
     private String employeeName;
     private String employeeID;
-    private String age;
+    private int age;
     private String gender;
+    private String startDate;
     private String level;
     private String teamInfo;
     private String positionTitle;
     private String cellPhone;
     private String emailID;
+    private String image;
 
+    
     public EmployeeData() {
     }
 
-    
-    public EmployeeData(String employeeName, String employeeID, String age, String gender, String level, String teamInfo, String positionTitle, String cellPhone, String emailID) {
+    public EmployeeData(String employeeName, String employeeID, int age, String gender, String startDate, String level, String teamInfo, String positionTitle, String cellPhone, String emailID, String image) {
         this.employeeName = employeeName;
         this.employeeID = employeeID;
         this.age = age;
         this.gender = gender;
+        this.startDate=startDate;
         this.level = level;
         this.teamInfo = teamInfo;
         this.positionTitle = positionTitle;
         this.cellPhone = cellPhone;
         this.emailID = emailID;
+        this.image = image;
     }
+
 
     public String getEmployeeName() {
         return employeeName;
@@ -52,11 +57,11 @@ public class EmployeeData {
         this.employeeID = employeeID;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -67,6 +72,15 @@ public class EmployeeData {
     public void setGender(String gender) {
         this.gender = gender;
     }
+    
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
 
     public String getLevel() {
         return level;
@@ -108,6 +122,13 @@ public class EmployeeData {
         this.emailID = emailID;
     }
     
-    
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     
 }
