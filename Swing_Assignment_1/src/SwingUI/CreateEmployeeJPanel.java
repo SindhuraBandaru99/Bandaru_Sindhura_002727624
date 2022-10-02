@@ -116,6 +116,11 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         });
 
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout createEmployeePanelLayout = new javax.swing.GroupLayout(createEmployeePanel);
         createEmployeePanel.setLayout(createEmployeePanelLayout);
@@ -322,11 +327,38 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
             if(evt.getSource()== addButton){
               EmployeeData empData=new EmployeeData(eName,eID,age,empGender,empLevel,empTeamInfo,empPT,empPhone,empEmail);  
               empDataObjs.add(empData);
+            }else if(evt.getSource()==clearButton){
+                nameText.setText("");
+                employeeIDText.setText("");
+                ageText.setText("");
+                maleInput.setSelected(false);
+                femaleInput.setSelected(false);
+                otherInput.setSelected(false);
+                levelSelect.setSelectedIndex(0);
+                teamInfoText.setText("");
+                ptText.setText("");
+                cellPhoneText.setText("");
+                emailIDText.setText("");
             }
 //            }else if(evt.getSource()== clearButton){
 //            }
         }
     }//GEN-LAST:event_addButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+                nameText.setText("");
+                employeeIDText.setText("");
+                ageText.setText("");
+                maleInput.setSelected(false);
+                femaleInput.setSelected(false);
+                otherInput.setSelected(false);
+                levelSelect.setSelectedIndex(0);
+                teamInfoText.setText("");
+                ptText.setText("");
+                cellPhoneText.setText("");
+                emailIDText.setText("");
+    }//GEN-LAST:event_clearButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

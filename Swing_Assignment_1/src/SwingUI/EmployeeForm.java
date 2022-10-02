@@ -44,6 +44,11 @@ public class EmployeeForm extends javax.swing.JFrame {
         });
 
         displayButton.setText("Display");
+        displayButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout employeePanelLayout = new javax.swing.GroupLayout(employeePanel);
         employeePanel.setLayout(employeePanelLayout);
@@ -106,6 +111,12 @@ public class EmployeeForm extends javax.swing.JFrame {
          CreateEmployeeJPanel createEmp=new CreateEmployeeJPanel();
         employeeSplitPane.setRightComponent(createEmp);
     }//GEN-LAST:event_createButtonActionPerformed
+
+    private void displayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayButtonActionPerformed
+        // TODO add your handling code here:
+        DisplayEmployeeJPanel displayEmp=new DisplayEmployeeJPanel();
+        employeeSplitPane.setRightComponent(displayEmp);
+    }//GEN-LAST:event_displayButtonActionPerformed
 
     /**
      * @param args the command line arguments
