@@ -58,7 +58,6 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         otherInput = new javax.swing.JRadioButton();
         startDateLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        levelSelect = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         teamInfoText = new javax.swing.JTextField();
         positionTitle = new javax.swing.JLabel();
@@ -70,10 +69,10 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         emailIDText = new javax.swing.JTextField();
         photoLabel = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
-        clearButton = new javax.swing.JButton();
         uploadPhoto = new javax.swing.JButton();
         photoArea = new javax.swing.JLabel();
         jStartDate = new com.toedter.calendar.JDateChooser();
+        levelText = new javax.swing.JTextField();
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Employee Details");
@@ -99,8 +98,6 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Level");
 
-        levelSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel5.setText("Team Info");
 
         positionTitle.setText("Position Title");
@@ -117,13 +114,6 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
-            }
-        });
-
-        clearButton.setText("Clear");
-        clearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearButtonActionPerformed(evt);
             }
         });
 
@@ -171,10 +161,13 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
                                         .addComponent(maleInput, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(femaleInput, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(createEmployeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(teamInfoText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(levelSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(createEmployeePanelLayout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addGroup(createEmployeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ptText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(teamInfoText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(levelText, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(createEmployeePanelLayout.createSequentialGroup()
                                 .addGroup(createEmployeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,22 +178,15 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
                                     .addComponent(photoArea, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(createEmployeePanelLayout.createSequentialGroup()
                                         .addGroup(createEmployeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(createEmployeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(ptText, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(emailID, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addGroup(createEmployeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(emailIDText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(cellPhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(uploadPhoto))))
+                                    .addComponent(uploadPhoto)
+                                    .addComponent(addButton))))
                         .addGap(0, 172, Short.MAX_VALUE))))
-            .addGroup(createEmployeePanelLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(addButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(clearButton)
-                .addGap(59, 59, 59))
             .addGroup(createEmployeePanelLayout.createSequentialGroup()
                 .addGroup(createEmployeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(createEmployeePanelLayout.createSequentialGroup()
@@ -245,7 +231,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createEmployeePanelLayout.createSequentialGroup()
                         .addGroup(createEmployeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(levelSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(levelText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(createEmployeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -272,11 +258,9 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
                         .addComponent(photoArea, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(uploadPhoto)
-                .addGap(35, 35, 35)
-                .addGroup(createEmployeePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButton)
-                    .addComponent(clearButton))
-                .addGap(46, 46, 46))
+                .addGap(41, 41, 41)
+                .addComponent(addButton)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -311,9 +295,9 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
             .addGap(0, 661, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 4, Short.MAX_VALUE)
+                    .addGap(0, 21, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 4, Short.MAX_VALUE)))
+                    .addGap(0, 21, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -331,7 +315,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         //formatDate.format(jStartDate.getDate());
         DateFormat formatDate = new SimpleDateFormat("MM-dd-yyy");  
         String startDate = formatDate.format(jStartDate.getDate());
-        String empLevel= levelSelect.getSelectedItem().toString();
+        String empLevel= levelText.getText();
         String empTeamInfo= teamInfoText.getText();
         String empPT= ptText.getText();
         String empPhone=cellPhoneText.getText();
@@ -341,43 +325,61 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
         if(eName.isEmpty() || eID.isEmpty() || ageText.getText().equals("") || empGender.isEmpty()|| startDate.isEmpty()||
                 empLevel.isEmpty()|| empTeamInfo.isEmpty()||empPT.isEmpty() || empPhone.isEmpty() || empEmail.isEmpty()){
             JOptionPane.showMessageDialog(this, "Please Enter all the fields", "Missing Details", JOptionPane.ERROR_MESSAGE);
-        }else{
-            if(evt.getSource()== addButton){
-              EmployeeData empData=new EmployeeData(eName,eID,age,empGender,startDate
-                      ,empLevel,empTeamInfo,empPT,empPhone,empEmail,imagePath);  
-              empDataObjs.add(empData);
-            }else if(evt.getSource()==clearButton){
-                nameText.setText("");
-                employeeIDText.setText("");
-                ageText.setText("");
-                maleInput.setSelected(false);
-                femaleInput.setSelected(false);
-                otherInput.setSelected(false);
-                genderGroup.getSelection().getSelectedObjects();
-                //startDate.set
-                levelSelect.setSelectedIndex(0);
-                teamInfoText.setText("");
-                ptText.setText("");
-                cellPhoneText.setText("");
-                emailIDText.setText("");
+        }if(!eName.matches("^[A-Z][a-z]+[ ]*[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Name",
+                        "Invalid Name", 
+                        JOptionPane.ERROR_MESSAGE);
+        }if(empPhone.length()!= 10 && !empPhone.matches("\\+\\d(-\\d{3}){2}-\\d{4}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Phone Number",
+                        "Invalid Phone Number", 
+                        JOptionPane.ERROR_MESSAGE);
+        }if(!empEmail.matches("^[a-z0-9]+@[a-z]+\\.[a-z]+$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Email Address",
+                        "Invalid Email Address", 
+                        JOptionPane.ERROR_MESSAGE);
             }
+        
+        else{
+            if (evt.getSource() == addButton)
+                    {
+                        if(empDataObjs.size() > 0) {
+                            for(EmployeeData e: empDataObjs) {
+                                //e.getEid()
+                                if(e.getEmployeeID().equals(eID)) {
+                                    JOptionPane.showMessageDialog(this,
+                            "Employee Data Already Exists!",
+                            "Try Again", 
+                            JOptionPane.ERROR_MESSAGE);
+                                    break;
+                                }
+                                else {
+                                    EmployeeData empData = new EmployeeData(eName, eID, age, empGender, startDate,
+                                empLevel, empTeamInfo, empPT, empPhone, empEmail, imagePath);
+                                    empDataObjs.add(empData);
+                                    JOptionPane.showMessageDialog(this,
+                            "Employee Data Saved",
+                            "Done", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                                }
+                            }
+                        }
+                        else {
+                                     EmployeeData empData = new EmployeeData(eName, eID, age, empGender, startDate,
+                                empLevel, empTeamInfo, empPT, empPhone, empEmail, imagePath);
+                                    empDataObjs.add(empData);
+                                    JOptionPane.showMessageDialog(this,
+                            "Employee Data Saved",
+                            "Done", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                                   
+                                }
+                        
+                    }
         }
     }//GEN-LAST:event_addButtonActionPerformed
-
-    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
-        // TODO add your handling code here:
-                nameText.setText("");
-                employeeIDText.setText("");
-                ageText.setText("");
-                maleInput.setSelected(false);
-                femaleInput.setSelected(false);
-                otherInput.setSelected(false);
-                levelSelect.setSelectedIndex(0);
-                teamInfoText.setText("");
-                ptText.setText("");
-                cellPhoneText.setText("");
-                emailIDText.setText("");
-    }//GEN-LAST:event_clearButtonActionPerformed
 
     private void uploadPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadPhotoActionPerformed
             // TODO add your handling code here:
@@ -404,7 +406,6 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel ageLabel;
     private javax.swing.JTextField ageText;
     private javax.swing.JTextField cellPhoneText;
-    private javax.swing.JButton clearButton;
     private javax.swing.JPanel createEmployeePanel;
     private javax.swing.JLabel emailID;
     private javax.swing.JTextField emailIDText;
@@ -420,7 +421,7 @@ public class CreateEmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private com.toedter.calendar.JDateChooser jStartDate;
-    private javax.swing.JComboBox<String> levelSelect;
+    private javax.swing.JTextField levelText;
     private javax.swing.JRadioButton maleInput;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameText;
