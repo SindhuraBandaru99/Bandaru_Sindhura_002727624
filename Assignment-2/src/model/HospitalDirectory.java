@@ -13,7 +13,7 @@ import java.util.List;
  * @author Sindhura Bandaru
  */
 public class HospitalDirectory {
-    private ArrayList<Hospital> listOfHospitals;  
+    private static ArrayList<Hospital> listOfHospitals;  
 
     public HospitalDirectory() {
         listOfHospitals = new ArrayList<Hospital>();
@@ -23,7 +23,7 @@ public class HospitalDirectory {
         this.listOfHospitals = listOfHospitals;
     }
 
-    public List<Hospital> getListOfHospitals() {
+    public static List<Hospital> getListOfHospitals() {
         return listOfHospitals;
     }
 
