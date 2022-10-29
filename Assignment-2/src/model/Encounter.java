@@ -1,11 +1,11 @@
 package model;
+
+import java.util.Date;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
-import java.util.Date;
-import model.VitalSigns;
 
 /**
  *
@@ -33,7 +33,7 @@ public class Encounter {
         this.vitalSigns = vitalSigns;
         this.doctorName = doctorName;
         this.encounterDate = encounterDate;
-        this.encounterHistory = encounterHistory;
+        //this.encounterHistory = encounterHistory;
     }
 
     public String getEncounterId() {

@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Sindhura Bandaru
  */
-public class Hospital {
+public class Hospital  {
     private String hospitalName;
     private String hospitalCommunity;
     private Long hospitalCode;
