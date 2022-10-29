@@ -1275,11 +1275,7 @@
                                                   <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
                                                   <Component id="lblEncountePatientName_U" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                                  <Component id="txtEncounterId_U" alignment="1" min="-2" pref="93" max="-2" attributes="0"/>
-                                                  <Component id="txtEncounterPatientAge_U" alignment="1" min="-2" pref="93" max="-2" attributes="0"/>
-                                                  <Component id="dcEncounterDate" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="dcEncounterDate" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="396" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1292,13 +1288,17 @@
                                           </Group>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="txtEncounterPatientName_U" min="-2" pref="91" max="-2" attributes="0"/>
-                                          </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="286" max="-2" attributes="0"/>
                                               <Component id="jLabel25" min="-2" pref="207" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="txtEncounterPatientName_U" alignment="1" min="-2" pref="91" max="-2" attributes="0"/>
+                                                  <Component id="txtEncounterPatientAge_U" alignment="1" min="-2" pref="93" max="-2" attributes="0"/>
+                                                  <Component id="txtEncounterId_U" alignment="1" min="-2" pref="93" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -1345,10 +1345,12 @@
                           </Group>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="lblEncounterPatientAge" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                  <Component id="txtEncounterPatientAge" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblEncounterPatientAge_U" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtEncounterPatientAge_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="txtEncounterPatientAge_U" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtEncounterPatientAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblEncounterPatientAge_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1477,6 +1479,9 @@
                 <Component class="javax.swing.JTextField" name="txtBP">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtHR">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHRActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblEncounterDoctorName">
                   <Properties>
@@ -1494,6 +1499,9 @@
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbBoxEncounterDoctorNameActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
