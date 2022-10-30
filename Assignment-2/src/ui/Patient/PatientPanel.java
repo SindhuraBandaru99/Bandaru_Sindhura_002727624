@@ -26,7 +26,7 @@ import static ui.Hospital.HospitalAdminFrame.encounterList;
 
 /**
  *
- * @author Sindhura Bandaru
+ * @author varshareddykumbham
  */
 public class PatientPanel extends javax.swing.JPanel {
 
