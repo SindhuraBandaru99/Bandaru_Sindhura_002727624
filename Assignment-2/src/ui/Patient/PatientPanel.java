@@ -19,6 +19,7 @@ import model.HospitalDirectory;
 import model.Patient;
 import model.VitalSigns;
 import ui.HomeFrame;
+import static ui.Hospital.HospitalAdminFrame.encounterList;
 
 /**
  *
@@ -308,7 +309,7 @@ public class PatientPanel extends javax.swing.JPanel {
         Date encounterDate = dcEncounterDate.getDate();
         Encounter e = new Encounter(encounterId, patient.getName(), patient.getAge(), patient.getId(), vitalSigns,
             doctorName, encounterDate);
-       // encounterList.add(e);
+        encounterList.add(e);
         patient.getEncounterHistory().getEncounters().add(e);
 
     }//GEN-LAST:event_btnBookAppointmentActionPerformed
