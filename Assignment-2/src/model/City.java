@@ -1,4 +1,4 @@
-package model;
+package model;;
 
 import java.util.List;
 
@@ -14,23 +14,27 @@ import java.util.List;
 public class City {
     private String cityName;
     private List<Community> communities;
-    private String cityState;
+    private String state;
 
     public City() {
-
+        
     }
-
-    public City(String cityName, List<Community> communities, String cityState) {
+    
+    public City(String cityName, List<Community> communities, String state) {
         this.cityName = cityName;
         this.communities = communities;
-        this.cityState = cityState;
+        this.state = state;
     }
     
-    public City(String cityName, String cityState) {
+    
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
         this.cityName = cityName;
-        this.cityState = cityState;
     }
-    
+
     public List<Community> getCommunities() {
         return communities;
     }
@@ -38,23 +42,13 @@ public class City {
     public void setCommunities(List<Community> communities) {
         this.communities = communities;
     }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
     
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-
-    public void setCityState(String cityState) {
-        this.cityState = cityState;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-
-    public String getCityState() {
-        return cityState;
-    }
-
 }

@@ -1,6 +1,5 @@
 package model;
 
-
 import java.util.List;
 
 /*
@@ -13,5 +12,22 @@ import java.util.List;
  * @author Sindhura Bandaru
  */
 public class PersonDirectory {
-    List<Person> listOfPersons;
+    private List<Person> persons;
+
+    public PersonDirectory() {
+    }
+
+    public PersonDirectory(List<Person> persons) {
+        this.persons = persons;
+    }
+
+    public List<Person> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
+    }
+    
+    
 }
