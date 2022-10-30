@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author Sindhura Bandaru
+ * @author varshareddykumbham
  */
 public class Community {
     private String communityName;
