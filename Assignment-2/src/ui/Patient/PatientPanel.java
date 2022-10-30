@@ -26,7 +26,7 @@ import static ui.Hospital.HospitalAdminFrame.encounterList;
 
 /**
  *
- * @author varshareddykumbham
+ * @author Sindhura Bandaru
  */
 public class PatientPanel extends javax.swing.JPanel {
 
@@ -118,9 +118,7 @@ public class PatientPanel extends javax.swing.JPanel {
         btnLogout = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableGetEncounterHistory = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtEncounterID = new javax.swing.JTextField();
         dcEncounterDate = new com.toedter.calendar.JDateChooser();
         lblEncounterDoctorName = new javax.swing.JLabel();
         tfDoctorName = new javax.swing.JTextField();
@@ -201,8 +199,6 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         ));
         jScrollPane2.setViewportView(tableGetEncounterHistory);
-
-        jLabel1.setText("Encounter ID");
 
         jLabel2.setText("Encounter Date");
 
@@ -367,10 +363,6 @@ public class PatientPanel extends javax.swing.JPanel {
                         .addComponent(tfPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnGetDoctors)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtEncounterID, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(dcEncounterDate, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -463,11 +455,7 @@ public class PatientPanel extends javax.swing.JPanel {
                             .addComponent(btnGetDoctors)
                             .addComponent(btnEditPatient)
                             .addComponent(btnUpdatePatient))
-                        .addGap(74, 74, 74)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtEncounterID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(109, 109, 109)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(dcEncounterDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -533,10 +521,9 @@ public class PatientPanel extends javax.swing.JPanel {
     private void btnBookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAppointmentActionPerformed
         // TODO add your handling code here:
         VitalSigns vitalSigns = new VitalSigns();
-        String encounterId = txtEncounterID.getText();
         String doctorName = tfDoctorName.getText();
         Date encounterDate = dcEncounterDate.getDate();
-        Encounter e = new Encounter(encounterId, patient.getName(), patient.getAge(), patient.getId(), vitalSigns,
+        Encounter e = new Encounter(patient.getName(), patient.getAge(), patient.getId(), vitalSigns,
             doctorName, encounterDate);
         encounterList.add(e);
         patient.getEncounterHistory().getEncounters().add(e);
@@ -690,7 +677,6 @@ public class PatientPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbPatientCity;
     private javax.swing.JComboBox<String> cbPatientCommunity;
     private com.toedter.calendar.JDateChooser dcEncounterDate;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -722,6 +708,5 @@ public class PatientPanel extends javax.swing.JPanel {
     private javax.swing.JTextField tfPatientPassword;
     private javax.swing.JTextField tfPatientPostalCode;
     private javax.swing.JTextField tfPatientUsername;
-    private javax.swing.JTextField txtEncounterID;
     // End of variables declaration//GEN-END:variables
 }

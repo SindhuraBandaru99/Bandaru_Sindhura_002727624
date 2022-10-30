@@ -581,7 +581,7 @@ public class DoctorPanel extends javax.swing.JPanel {
             System.out.print("Encounter"+ encounterList.size());
             Encounter selectedEncounter = encounterList.get(row);
             VitalSigns updatedVitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
-            Encounter updatedEncounter = new Encounter(name, Integer.parseInt(age),
+            Encounter updatedEncounter = new Encounter(encounterId, name, Integer.parseInt(age),
                 selectedEncounter.getPatientId(),
                 updatedVitalSigns, doctorName, encounterDate);
             encounterList.remove(row);
