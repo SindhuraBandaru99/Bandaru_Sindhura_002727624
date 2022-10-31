@@ -3263,6 +3263,16 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             int row = tableEncounterHistory.getSelectedRow();
             tblEncounterModel.removeRow(row);
             HospitalAdminFrame.encounterList.remove(row);
+            for(Patient p : HospitalAdminFrame.patients) {
+                for(Encounter en : p.getEncounterHistory().getEncounters()) {
+                    String enId = tblEncounterModel.getValueAt(row, 0).toString();
+                    if(en.getEncounterId().equals(enId)) {
+                        int index = p.getEncounterHistory().getEncounters().indexOf(en);
+                        p.getEncounterHistory().getEncounters().remove(index);
+                        break;
+                    }
+                }
+            }
         } catch (ArrayIndexOutOfBoundsException ex) {
             JOptionPane.showMessageDialog(this,
                     "Please select a row to view",
