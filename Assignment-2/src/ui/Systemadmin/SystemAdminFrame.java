@@ -2431,6 +2431,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         displayHospitalTable();
         setCityCombobox();
         displayPatientTable();
+        loadComboBoxData();
     }//GEN-LAST:event_btnUpdateCityActionPerformed
 
     private void txtState_UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtState_UActionPerformed
