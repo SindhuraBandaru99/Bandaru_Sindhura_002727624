@@ -82,6 +82,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         initComponents();
         setCityCombobox();
         setHospitalNameComboBox();
+        setDoctorCombobox();
         tblModel = (DefaultTableModel) tableHospitals.getModel();
         tblEncounterModel = (DefaultTableModel) tableEncounterHistory.getModel();
         tblPatientModel = (DefaultTableModel) tablePatientDetails.getModel();
