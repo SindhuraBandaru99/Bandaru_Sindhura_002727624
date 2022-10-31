@@ -4,9 +4,12 @@
  */
 package ui.Hospital;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.City;
@@ -90,7 +93,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     public void displayHospitalTable() {
         tblModel.setRowCount(0);
         for(Hospital h: listOfHospitals.getHospitals()) {
-            Object[] row_data = {h.getHospitalName(), h.getCommunity(), h.getHospitalId(), h.getCity(), h.getZipcode()};
+            Object[] row_data = {h.getHospitalName(), h.getCommunity(), h.getHospitalId(),h.getCity(), h.getZipcode()};
             tblModel.addRow(row_data);
         }
     }
@@ -129,8 +132,6 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         jLabelHospitalCommunity = new javax.swing.JLabel();
         jLabelHospitalCity = new javax.swing.JLabel();
         jLabelHospitalPostalCode = new javax.swing.JLabel();
-        jLabelHospitalCode = new javax.swing.JLabel();
-        tfHospitalCode = new javax.swing.JTextField();
         tfHospitalName = new javax.swing.JTextField();
         tfHospitalPostalCode = new javax.swing.JTextField();
         btnAddHospital = new javax.swing.JButton();
@@ -151,6 +152,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         tfHospitalPostalCode_U = new javax.swing.JTextField();
         jComboBoxHospitalCity_U = new javax.swing.JComboBox<>();
         jComboBoxHospitalCommunity_U = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        tfHospitalCode = new javax.swing.JTextField();
         jPaneladdDoctors = new javax.swing.JPanel();
         jLabelDoctoreName = new javax.swing.JLabel();
         jLabelAge = new javax.swing.JLabel();
@@ -293,14 +296,6 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
         jLabelHospitalPostalCode.setText("Hospital Postal Code");
 
-        jLabelHospitalCode.setText("Hospital Code");
-
-        tfHospitalCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfHospitalCodeActionPerformed(evt);
-            }
-        });
-
         tfHospitalPostalCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfHospitalPostalCodeActionPerformed(evt);
@@ -391,6 +386,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Hospital Code");
+
         javax.swing.GroupLayout jPanelAddHospitalsLayout = new javax.swing.GroupLayout(jPanelAddHospitals);
         jPanelAddHospitals.setLayout(jPanelAddHospitalsLayout);
         jPanelAddHospitalsLayout.setHorizontalGroup(
@@ -400,18 +397,23 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelHospitalCity, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelHospitalPostalCode)
-                    .addComponent(jLabelHospitalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelHospitalCommunity)
-                    .addComponent(jLabelHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                    .addComponent(jLabelHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxHospitalCity, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(tfHospitalName, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                        .addComponent(tfHospitalCode)
-                        .addComponent(tfHospitalPostalCode))
-                    .addComponent(jComboBoxHospitalCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addGroup(jPanelAddHospitalsLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxHospitalCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfHospitalPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxHospitalCity, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddHospitalsLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfHospitalName, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                            .addComponent(tfHospitalCode))
+                        .addGap(40, 40, 40)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanelAddHospitalsLayout.createSequentialGroup()
@@ -452,22 +454,23 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelHospitalName))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelHospitalCode)
+                            .addComponent(jLabel1)
                             .addComponent(tfHospitalCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(3, 3, 3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelHospitalCity)
                             .addComponent(jComboBoxHospitalCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBoxHospitalCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelHospitalCommunity))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelHospitalCommunity)
-                            .addComponent(jComboBoxHospitalCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfHospitalPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelHospitalPostalCode)))
+                            .addComponent(jLabelHospitalPostalCode))
+                        .addGap(11, 11, 11))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddHospital)
@@ -618,7 +621,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(btnAddDoctor)
-                        .addGap(216, 216, 216)
+                        .addGap(192, 192, 192)
                         .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPaneladdDoctorsLayout.createSequentialGroup()
                                 .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -771,7 +774,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37)
                     .addComponent(tfPhoneNumber_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1488, Short.MAX_VALUE))
+                .addContainerGap(1502, Short.MAX_VALUE))
             .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
                     .addGap(350, 350, 350)
@@ -780,7 +783,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     .addComponent(btnEditDoctor)
                     .addGap(18, 18, 18)
                     .addComponent(btnUpdateDoctor)
-                    .addContainerGap(1628, Short.MAX_VALUE)))
+                    .addContainerGap(1642, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Doctor", jPaneladdDoctors);
@@ -1155,7 +1158,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         .addComponent(btnAddPatient)))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1328, Short.MAX_VALUE))
+                .addContainerGap(1342, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Patient", jPanelAddPatients);
@@ -1432,7 +1435,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                             .addComponent(btnUpdateEncounter))))
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1349, Short.MAX_VALUE))
+                .addContainerGap(1363, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Encounter", jPanelAddEncounters);
@@ -1504,7 +1507,26 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         "Enter all Fields",
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
-            } else {
+            }
+            else if(!temperature.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Temperature should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!bloodPressure.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Blood Pressure should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!heartRate.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Heart Rate should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else {
                 int age = Integer.parseInt(patientAge);
                 VitalSigns vitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
                 Encounter encounter = new Encounter(patientName, age, patientId, vitalSigns, doctorName, encounterDate);
@@ -1572,18 +1594,6 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                             }
                         }
                     }
-//                    for (Encounter en : encounterList) {
-//                        if (en.getPatientId().equals(patientId)) {
-//                            SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
-//                            String date = dateformat.format(en.getEncounterDate());
-//                            Object[] data = {en.getEncounterId(), date, en.getPatientName(), en.getPatientAge(),
-//                                en.getVitalSigns().getTemperature(), en.getVitalSigns().getBloodPressure(),
-//                                en.getVitalSigns().getHeartRate(), en.getDoctorName()};
-//
-//                            tblEncounterModel.addRow(data);
-//                            System.out.println(en.getPatientId());
-//                        }
-//                    }
                 }
             }
         } catch (Exception ex) {
@@ -1620,9 +1630,37 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         "Enter all Fields",
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
-                flag = 1;
             }
-            if (flag == 0) {
+            else if(!name.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Patient Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(cellphone.length()!= 10 || !cellphone.matches("\\d{10}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter valid Phone Number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!age.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Age must be a number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{3,6}$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Password"
+                                + "(atleast 1 digit)"
+                                + "(atleast 1 Uppercase letter)"
+                                + "(atleast 1 Lowercase letter)"
+                                + "(Minimum length: 3)"
+                                + "(Maximum length: 6)",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else {
 
                 int ageVal = Integer.parseInt(tfPatientAge.getText());
                 Long postalcodeVal = Long.valueOf(tfPatientPostalCode.getText());
@@ -1633,7 +1671,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 Object[] data = {name, id, age, gender, houseNo, community, city, postalcode, cellphone};
                 tblPatientModel.addRow(data);
 
-                JOptionPane.showMessageDialog(this, "Patient Information saved!");
+                JOptionPane.showMessageDialog(this, "Patient Data saved!");
 
                 tfPatientName.setText("");
                 tfPatientAge.setText("");
@@ -1701,6 +1739,35 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     || userName.isEmpty() || passWord.isEmpty()){
 
             }
+            else if(!name.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Doctor Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(phoneNumber.length()!= 10 || !phoneNumber.matches("\\d{10}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter valid Phone Number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!age.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Age must be a number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!passWord.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{3,6}$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Password"
+                                + "(atleast 1 digit)"
+                                + "(atleast 1 Uppercase letter)"
+                                + "(atleast 1 Lowercase letter)"
+                                + "(Minimum length: 3)"
+                                + "(Maximum length: 6)",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
             else {
                 int doctorAge = Integer.parseInt(age);
                 doctor = new Doctor(hospitalName, department, phoneNumber, name, doctorAge, gender, role, userName, passWord);
@@ -1710,6 +1777,10 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 doctorTblModel.addRow(data);
                 setDoctorCombobox();
                 displayDoctorTable();
+                JOptionPane.showMessageDialog(this,
+                        "Doctor Data Saved",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         }
         catch(Exception ex) {
@@ -1728,22 +1799,38 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             String name = tfHospitalName.getText();
-            String code = tfHospitalCode.getText();
             String community = (String) jComboBoxHospitalCommunity.getSelectedItem();
             String city = (String) jComboBoxHospitalCity.getSelectedItem();
-            Long postalCode = Long.valueOf(tfHospitalPostalCode.getText());
-            if(name.isEmpty() || code.isEmpty() || community.isEmpty()) {
+            String postalCode = tfHospitalPostalCode.getText();
+            String hospitalCode = tfHospitalCode.getText();
+            if(name.isEmpty() || community.isEmpty() || postalCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this,
                             "Enter all Fields",
                             "Try Again",
                             JOptionPane.ERROR_MESSAGE);
             }
+            else if(!name.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Hospital Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(postalCode.length()!= 5 || !postalCode.matches("\\d{5}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter 5 digit Zipcode",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
             else {
-                Long hospitalcode = Long.valueOf(code);
-                hospital = new Hospital(name, community, postalCode, city, hospitalcode);
+                Long zipCode = Long.valueOf(postalCode);
+                hospital = new Hospital(name, community, hospitalCode, city, zipCode);
                 listOfHospitals.getHospitals().add(hospital);
                 displayHospitalTable();
                 setHospitalNameComboBox();
+                JOptionPane.showMessageDialog(this,
+                        "Hospital Data Saved",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         }
         catch(Exception ex) {
@@ -1753,10 +1840,6 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     private void tfHospitalPostalCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHospitalPostalCodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfHospitalPostalCodeActionPerformed
-
-    private void tfHospitalCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHospitalCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfHospitalCodeActionPerformed
 
     private void rbPatientGenderFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPatientGenderFemaleActionPerformed
         // TODO add your handling code here:
@@ -1838,14 +1921,18 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             tfHospitalPostalCode_U.setEditable(false);
 
         }
-        catch(Exception ex){
-
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btnViewHospitalActionPerformed
 
     private void btnEditHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditHospitalActionPerformed
         // TODO add your handling code here:
+        try {
         int index = 0;
         int commIndex = 0;
         int row = tableHospitals.getSelectedRow();
@@ -1869,7 +1956,13 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         }
         jComboBoxHospitalCity_U.setSelectedIndex(index);
         jComboBoxHospitalCommunity_U.setSelectedIndex(commIndex);
-
+        }
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEditHospitalActionPerformed
 
     private void btnUpdateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateHospitalActionPerformed
@@ -1889,9 +1982,21 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
             }
+            else if(!hospitalName.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Hospital Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(zipcode.length()!= 5 || !zipcode.matches("\\d{5}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter 5 digit Zipcode",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
             else{
                 Hospital updatedHospital = new Hospital(hospitalName, hospitalCommunity,
-                    Long.parseLong(zipcode), hospitalCity, Long.parseLong(hospitalCode));
+                    hospitalCode, hospitalCity, Long.parseLong(zipcode));
 
                 listOfHospitals.getHospitals().remove(row);
                 listOfHospitals.getHospitals().add(row, updatedHospital);
@@ -1901,6 +2006,10 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 tblModel.insertRow(row, data);
                 displayHospitalTable();
                 setHospitalNameComboBox();
+                JOptionPane.showMessageDialog(this,
+                        "Hospital Data Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         }
         catch(Exception ex) {
@@ -1980,13 +2089,17 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             tfPhoneNumber_U.setEditable(false);
 
         }
-        catch(Exception ex){
-
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewDoctorActionPerformed
 
     private void btnEditDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDoctorActionPerformed
         // TODO add your handling code here:
+        try {
         int index = 0;
         int row = tableDoctors.getSelectedRow();
         String hospitalName = doctorTblModel.getValueAt(row, 4).toString();
@@ -2006,6 +2119,12 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         jComboBoxHospitalName_U.setEditable(true);
         tfDepartment_U.setEditable(true);
         tfPhoneNumber_U.setEditable(true);
+        } catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEditDoctorActionPerformed
 
     private void btnUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateDoctorActionPerformed
@@ -2030,6 +2149,24 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
             }
+            else if(!doctorName.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Doctor Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!doctorAge.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Age must be a number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(doctorPhNo.length()!= 10 || !doctorPhNo.matches("\\d{10}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter valid Phone Number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
             else{
                 Doctor selectedDoctor = listOfDoctors.getDoctors().get(row);
                 Doctor updatedDoctor = new Doctor(hospitalName, doctorDepartment, doctorPhNo, doctorName, doctorId, Integer.parseInt(doctorAge),doctorGender, "Doctor",
@@ -2043,6 +2180,10 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 doctorTblModel.insertRow(row, data);
                 setDoctorCombobox();
                 displayDoctorTable();
+                JOptionPane.showMessageDialog(this,
+                        "Doctor Data Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         }
         catch(Exception ex) {
@@ -2120,6 +2261,24 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
             }
+            else if(!patientName.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Patient Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(patientPhNo.length()!= 10 || !patientPhNo.matches("\\d{10}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter valid Phone Number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!patientAge.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Age must be a number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
             else{
                 Patient selectedPatient = listOfPatients.getPatients().get(row);
                 Patient updatedPatient = new Patient(patientPhNo, houseNo, patientCommunity, patientCity, Long.parseLong(zipcode), patientName,
@@ -2131,6 +2290,10 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     patientCity, zipcode, patientPhNo};
                 tblPatientModel.removeRow(row);
                 tblPatientModel.insertRow(row, data);
+                JOptionPane.showMessageDialog(this,
+                        "Patient Data Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         }
         catch(Exception ex) {
@@ -2193,13 +2356,17 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             tfPatientPostalCode_update.setEditable(false);
 
         }
-        catch(Exception ex){
-
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewPatientActionPerformed
 
     private void btnEditPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditPatientActionPerformed
         // TODO add your handling code here:
+        try {
         int index = 0;
         int commIndex = 0;
         int row = tablePatientDetails.getSelectedRow();
@@ -2230,6 +2397,13 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         }
         cbPatientCity_update.setSelectedIndex(index);
         cbPatientCommunity_update.setSelectedIndex(commIndex);
+        }
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEditPatientActionPerformed
 
     private void txtHeartRate_UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHeartRate_UActionPerformed
@@ -2279,8 +2453,14 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             txtEncounterDoctorName_U.setText(doctorName);
             txtEncounterDoctorName_U.setEditable(false);
 
-        } catch (Exception ex) {
-
+        } 
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        } catch (ParseException ex) {
+            Logger.getLogger(HospitalAdminFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_btnViewEncounterActionPerformed
@@ -2315,7 +2495,26 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     "Enter all Fields",
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
-            } else {
+            }
+            else if(!temperature.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Temperature should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!bloodPressure.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Blood Pressure should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!heartRate.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Heart Rate should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else {
                 int row = tableEncounterHistory.getSelectedRow();
                 Encounter selectedEncounter = encounterList.get(row);
                 VitalSigns updatedVitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
@@ -2348,6 +2547,10 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         }
                     }
                 }
+                JOptionPane.showMessageDialog(this,
+                        "Encounter Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         }
         catch(Exception ex) {
@@ -2427,6 +2630,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxHospitalCommunity_U;
     private javax.swing.JComboBox<String> jComboBoxHospitalName;
     private javax.swing.JComboBox<String> jComboBoxHospitalName_U;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -2468,7 +2672,6 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDoctoreName;
     private javax.swing.JLabel jLabelGender;
     private javax.swing.JLabel jLabelHospitalCity;
-    private javax.swing.JLabel jLabelHospitalCode;
     private javax.swing.JLabel jLabelHospitalCommunity;
     private javax.swing.JLabel jLabelHospitalName;
     private javax.swing.JLabel jLabelHospitalNameDoctorPanel;

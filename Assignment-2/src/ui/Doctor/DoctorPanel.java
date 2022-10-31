@@ -4,8 +4,11 @@
  */
 package ui.Doctor;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -362,8 +365,6 @@ public class DoctorPanel extends javax.swing.JPanel {
         try {
             //patientRecordIndex = 0;
             String patientId = txtPatientID.getText();
-            //int val = PatientDirectory.getPatients().size();
-            //System.out.print("PatientDirectory" + val);
             for (Patient p : HospitalAdminFrame.patients) {
                 if (p.getId().equals(patientId)) {
                     txtEncounterPatientName.setText(p.getName());
@@ -453,7 +454,26 @@ public class DoctorPanel extends javax.swing.JPanel {
                     "Enter all Fields",
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
-            } else {
+            }
+            else if(!temperature.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Temperature should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!bloodPressure.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Blood Pressure should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!heartRate.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Heart Rate should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else {
                 int age = Integer.parseInt(patientAge);
                 VitalSigns vitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
                 Encounter encounter = new Encounter(patientName, age, patientId, vitalSigns, doctorName, encounterDate);
@@ -541,8 +561,13 @@ public class DoctorPanel extends javax.swing.JPanel {
             txtEncounterDoctorName_U.setText(doctorName);
             txtEncounterDoctorName_U.setEditable(false);
 
-        } catch (Exception ex) {
-
+        } catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        } catch (ParseException ex) {
+            Logger.getLogger(DoctorPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnViewEncounterActionPerformed
 
@@ -559,6 +584,7 @@ public class DoctorPanel extends javax.swing.JPanel {
 
     private void btnUpdateEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEncounterActionPerformed
         // TODO add your handling code here:
+        try {
         String encounterId = txtEncounterId_U.getText();
         Date encounterDate = dcEncounterDate_U.getDate();
         String name = txtEncounterPatientName_U.getText();
@@ -576,6 +602,24 @@ public class DoctorPanel extends javax.swing.JPanel {
                 "Try Again",
                 JOptionPane.ERROR_MESSAGE);
         }
+        else if(!temperature.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Temperature should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!bloodPressure.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Blood Pressure should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!heartRate.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Heart Rate should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
         else{
             int row = tableEncounterHistory.getSelectedRow();
             System.out.print("Encounter"+ encounterList.size());
@@ -610,6 +654,14 @@ public class DoctorPanel extends javax.swing.JPanel {
                     }
                 }
             }
+            JOptionPane.showMessageDialog(this,
+                        "Encounter Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+        }
+        }
+        catch(Exception ex) {
+            
         }
     }//GEN-LAST:event_btnUpdateEncounterActionPerformed
 

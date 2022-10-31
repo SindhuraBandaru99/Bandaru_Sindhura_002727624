@@ -57,6 +57,12 @@ public class AddCommunityPanel extends javax.swing.JPanel {
 
         lblCommunityName.setText("Community Name");
 
+        txtCommunityName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCommunityNameActionPerformed(evt);
+            }
+        });
+
         lblSelectCity.setText("Select City");
 
         cmbBoxSelectCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -217,7 +223,19 @@ public class AddCommunityPanel extends javax.swing.JPanel {
                         "Try Again", 
                         JOptionPane.ERROR_MESSAGE);
         }
-        else{
+        else if(!communityName.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Community",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+        }
+        else if(zipCode.length()!= 5 || !zipCode.matches("\\d{5}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter 5 digit Zipcode",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+        }
+        else {
             Community community = new Community(communityName, Long.parseLong(zipCode), city);
             communityList.add(community);
             for(City c: AddCityPanel.cityList) {
@@ -229,6 +247,7 @@ public class AddCommunityPanel extends javax.swing.JPanel {
             else {
                 communities = new ArrayList();
             }
+            
         }
             Object[] data = {communityName, zipCode, city};
             tableModel.addRow(data);
@@ -251,22 +270,17 @@ public class AddCommunityPanel extends javax.swing.JPanel {
             String community = tableModel.getValueAt(row, 0).toString();
             String zipcode = tableModel.getValueAt(row, 1).toString();
             String city = tableModel.getValueAt(row, 2).toString();
-
-//            cmbBoxSelectCity_U.removeAllItems();
-//            //           for(City c: AddCityPanel.cityList){
-//                cmbBoxSelectCity_U.addItem(city);
-//                //           }
-//            //            cmbBoxSelectCity_U.getItemAt(row);
-//            cmbBoxSelectCity_U.setEnabled(false);
-
             txtCommunityName_U.setText(community);
             txtCommunityName_U.setEditable(false);
 
             txtZipCode_U.setText(zipcode);
             txtZipCode_U.setEditable(false);
         }
-        catch(Exception ex){
-
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewCommunityActionPerformed
 
@@ -282,13 +296,24 @@ public class AddCommunityPanel extends javax.swing.JPanel {
             int row = tableCommunityDetails.getSelectedRow();
             String community = txtCommunityName_U.getText();
             String zipcode = txtZipCode_U.getText();
-    //        String city = cmbBoxSelectCity_U.getSelectedItem().toString();
-
+            
             if(community.isEmpty() || zipcode.isEmpty()){
                 JOptionPane.showMessageDialog(this,
                     "Enter all Fields",
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!community.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Community",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(zipcode.length()!= 5 || !zipcode.matches("\\d{5}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter 5 digit Zipcode",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
             }
             else{
                 Community selectedCommunity = communityList.get(row);
@@ -314,6 +339,10 @@ public class AddCommunityPanel extends javax.swing.JPanel {
                         communities = new ArrayList();
                     }
                 }
+            JOptionPane.showMessageDialog(this,
+                        "Community Data Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         }
         catch(Exception ex) { 
@@ -324,6 +353,10 @@ public class AddCommunityPanel extends javax.swing.JPanel {
     private void txtZipCode_UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZipCode_UActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtZipCode_UActionPerformed
+
+    private void txtCommunityNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommunityNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCommunityNameActionPerformed
 
     private void loadComboBoxData(){
         cmbBoxSelectCity.removeAllItems();

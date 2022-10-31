@@ -203,7 +203,20 @@ public class AddCityPanel extends javax.swing.JPanel {
                         "Enter all Fields",
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
-            } else {
+            } 
+            else if(!cityName.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid City",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!state.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid State",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else {
                 City city = new City(cityName, communities, state);
                 cityList.add(city);
                 Object[] data = {cityName, state};
@@ -231,8 +244,11 @@ public class AddCityPanel extends javax.swing.JPanel {
             txtState_U.setText(state);
             txtState_U.setEditable(false);
         }
-        catch(Exception ex){
-
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewCityActionPerformed
 
@@ -249,6 +265,18 @@ public class AddCityPanel extends javax.swing.JPanel {
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
             }
+            else if(!city.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid City",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!state.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid State",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
             else{
                 List<Community> communities = new ArrayList<Community>();
                 for(City c: cityList){
@@ -263,6 +291,10 @@ public class AddCityPanel extends javax.swing.JPanel {
                 tableModel.removeRow(row);
                 Object[] data = {city, state};
                 tableModel.insertRow(row, data);
+                JOptionPane.showMessageDialog(this,
+                        "City Data Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         }
         catch(Exception ex) { 

@@ -482,7 +482,6 @@ public class PatientPanel extends javax.swing.JPanel {
     private void btnGetDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetDoctorsActionPerformed
         // TODO add your handling code here:
 
-//        String communityName = tfCommunityName.getText();
         String communityName = (String) cbPatientCommunity.getSelectedItem();
         hospitalNames = new ArrayList();
         //System.out.println(HospitalDirectory.getHospitals());
@@ -520,13 +519,31 @@ public class PatientPanel extends javax.swing.JPanel {
 
     private void btnBookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAppointmentActionPerformed
         // TODO add your handling code here:
-        VitalSigns vitalSigns = new VitalSigns();
+        try {
         String doctorName = tfDoctorName.getText();
         Date encounterDate = dcEncounterDate.getDate();
-        Encounter e = new Encounter(patient.getName(), patient.getAge(), patient.getId(), vitalSigns,
-            doctorName, encounterDate);
-        encounterList.add(e);
-        patient.getEncounterHistory().getEncounters().add(e);
+        
+        if(doctorName.isEmpty() || encounterDate.toString().isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                        "Enter all Fields",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        }
+        else {
+            VitalSigns vitalSigns = new VitalSigns();
+            Encounter e = new Encounter(patient.getName(), patient.getAge(), patient.getId(), vitalSigns,
+                doctorName, encounterDate);
+            encounterList.add(e);
+            patient.getEncounterHistory().getEncounters().add(e);
+        }
+        JOptionPane.showMessageDialog(this,
+                        "Appointment Booked",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch(Exception ex) {
+            
+        }
 
     }//GEN-LAST:event_btnBookAppointmentActionPerformed
 
@@ -588,6 +605,7 @@ public class PatientPanel extends javax.swing.JPanel {
 
     private void btnEditPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditPatientActionPerformed
         // TODO add your handling code here:
+        try {
         int index = 0;
         int commIndex = 0;
         tfPatientName.setEditable(true);
@@ -616,10 +634,18 @@ public class PatientPanel extends javax.swing.JPanel {
         }
         cbPatientCity.setSelectedIndex(index);
         cbPatientCommunity.setSelectedIndex(commIndex);
+        }
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEditPatientActionPerformed
 
     private void btnUpdatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdatePatientActionPerformed
         // TODO add your handling code here:
+        try {
         int index = 0;
         String patientId = tfPatientId.getText();
         String patientName = tfPatientName.getText();
@@ -645,6 +671,35 @@ public class PatientPanel extends javax.swing.JPanel {
                 "Try Again",
                 JOptionPane.ERROR_MESSAGE);
         }
+        else if(!patientName.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Patient Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(patientPhNo.length()!= 10 || !patientPhNo.matches("\\d{10}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter valid Phone Number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{3,6}$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Password"
+                                + "(atleast 1 digit)"
+                                + "(atleast 1 Uppercase letter)"
+                                + "(atleast 1 Lowercase letter)"
+                                + "(Minimum length: 3)"
+                                + "(Maximum length: 6)",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!patientAge.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Age must be a number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
         else{
             //Patient selectedPatient = listOfPatients.getPatients().get(row);
             Patient updatedPatient = new Patient(patientPhNo, houseNo, patientCommunity, patientCity, Long.parseLong(zipcode), patientName,
@@ -662,6 +717,13 @@ public class PatientPanel extends javax.swing.JPanel {
             Object[] data = {patientName, patientId, patientAge, patientGender, houseNo, patientCommunity,
                 patientCity, zipcode, patientPhNo};
             tblPatientModel.addRow(data);
+        }
+        JOptionPane.showMessageDialog(this,
+                        "Patient Data Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch(Exception ex) {
         }
     }//GEN-LAST:event_btnUpdatePatientActionPerformed
 
