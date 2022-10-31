@@ -288,6 +288,12 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+
+        jTabbedPane1.setBackground(new java.awt.Color(0, 153, 153));
+
+        jPanelAddHospitals.setBackground(new java.awt.Color(0, 153, 153));
+
         jLabelHospitalName.setText("Hospital Name");
 
         jLabelHospitalCommunity.setText("Hospital Community");
@@ -302,6 +308,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddHospital.setBackground(new java.awt.Color(0, 204, 204));
+        btnAddHospital.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAddHospital.setText("Add Hospital");
         btnAddHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -341,6 +349,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnViewHospital.setBackground(new java.awt.Color(0, 204, 204));
+        btnViewHospital.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnViewHospital.setText("View");
         btnViewHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,6 +358,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditHospital.setBackground(new java.awt.Color(0, 204, 204));
+        btnEditHospital.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEditHospital.setText("Edit");
         btnEditHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -355,6 +367,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateHospital.setBackground(new java.awt.Color(0, 204, 204));
+        btnUpdateHospital.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnUpdateHospital.setText("Update");
         btnUpdateHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -503,6 +517,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Hospital", jPanelAddHospitals);
 
+        jPaneladdDoctors.setBackground(new java.awt.Color(0, 153, 153));
+
         jLabelDoctoreName.setText("Doctor name");
 
         jLabelAge.setText("Age");
@@ -532,6 +548,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddDoctor.setBackground(new java.awt.Color(0, 204, 204));
+        btnAddDoctor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAddDoctor.setText("Add Doctor");
         btnAddDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -563,6 +581,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
         jLabelPassword.setText("Password");
 
+        btnViewDoctor.setBackground(new java.awt.Color(0, 204, 204));
+        btnViewDoctor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnViewDoctor.setText("View");
         btnViewDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -570,6 +590,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditDoctor.setBackground(new java.awt.Color(0, 204, 204));
+        btnEditDoctor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEditDoctor.setText("Edit");
         btnEditDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -577,6 +599,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateDoctor.setBackground(new java.awt.Color(0, 204, 204));
+        btnUpdateDoctor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnUpdateDoctor.setText("Update");
         btnUpdateDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -692,7 +716,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                                 .addComponent(jLabelPassword)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
                     .addGap(164, 164, 164)
@@ -788,6 +812,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Doctor", jPaneladdDoctors);
 
+        jPanelAddPatients.setBackground(new java.awt.Color(0, 153, 153));
         jPanelAddPatients.setPreferredSize(new java.awt.Dimension(1114, 2000));
 
         jLabel4.setText("Patient Name :");
@@ -857,6 +882,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddPatient.setBackground(new java.awt.Color(0, 204, 204));
+        btnAddPatient.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAddPatient.setText("Add Patient");
         btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -864,6 +891,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        tablePatientDetails.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tablePatientDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -933,6 +961,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdatePatient.setBackground(new java.awt.Color(0, 204, 204));
+        btnUpdatePatient.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnUpdatePatient.setText("Update");
         btnUpdatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -940,6 +970,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnViewPatient.setBackground(new java.awt.Color(0, 204, 204));
+        btnViewPatient.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnViewPatient.setText("View");
         btnViewPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -947,6 +979,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditPatient.setBackground(new java.awt.Color(0, 204, 204));
+        btnEditPatient.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEditPatient.setText("Edit");
         btnEditPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1052,7 +1086,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             .addGroup(jPanelAddPatientsLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
         jPanelAddPatientsLayout.setVerticalGroup(
             jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1158,11 +1192,14 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         .addComponent(btnAddPatient)))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1342, Short.MAX_VALUE))
+                .addContainerGap(1252, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Patient", jPanelAddPatients);
 
+        jPanelAddEncounters.setBackground(new java.awt.Color(0, 153, 153));
+
+        btnGetPatientID.setBackground(new java.awt.Color(0, 204, 204));
         btnGetPatientID.setText("Get Patient");
         btnGetPatientID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1193,6 +1230,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddEncounter.setBackground(new java.awt.Color(0, 204, 204));
+        btnAddEncounter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAddEncounter.setText("Add Encounter");
         btnAddEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1247,6 +1286,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnViewEncounter.setBackground(new java.awt.Color(0, 204, 204));
+        btnViewEncounter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnViewEncounter.setText("View");
         btnViewEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1254,6 +1295,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditEncounter.setBackground(new java.awt.Color(0, 204, 204));
+        btnEditEncounter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEditEncounter.setText("Edit");
         btnEditEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1261,6 +1304,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateEncounter.setBackground(new java.awt.Color(0, 204, 204));
+        btnUpdateEncounter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnUpdateEncounter.setText("Update");
         btnUpdateEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1451,6 +1496,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             .addComponent(jTabbedPane1)
         );
 
+        btnLogoutHospitalAdminFrame.setBackground(new java.awt.Color(0, 204, 204));
+        btnLogoutHospitalAdminFrame.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLogoutHospitalAdminFrame.setText("Logout");
         btnLogoutHospitalAdminFrame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

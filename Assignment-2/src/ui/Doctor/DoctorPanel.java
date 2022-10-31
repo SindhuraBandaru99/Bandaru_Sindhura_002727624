@@ -89,6 +89,10 @@ public class DoctorPanel extends javax.swing.JPanel {
         btnUpdateEncounter = new javax.swing.JButton();
         dcEncounterDate_U = new com.toedter.calendar.JDateChooser();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
+        btnGetPatientID.setBackground(new java.awt.Color(0, 204, 204));
+        btnGetPatientID.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnGetPatientID.setText("Get Patient");
         btnGetPatientID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +114,8 @@ public class DoctorPanel extends javax.swing.JPanel {
 
         lblEncounterDoctorName.setText("Doctor Name");
 
+        btnAddEncounter.setBackground(new java.awt.Color(0, 204, 204));
+        btnAddEncounter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAddEncounter.setText("Add Encounter");
         btnAddEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +133,8 @@ public class DoctorPanel extends javax.swing.JPanel {
         ));
         jScrollPane4.setViewportView(tableEncounterHistory);
 
+        btnLogOut.setBackground(new java.awt.Color(0, 204, 204));
+        btnLogOut.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLogOut.setText("Logout");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,6 +179,8 @@ public class DoctorPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewEncounter.setBackground(new java.awt.Color(0, 204, 204));
+        btnViewEncounter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnViewEncounter.setText("View");
         btnViewEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +188,8 @@ public class DoctorPanel extends javax.swing.JPanel {
             }
         });
 
+        btnEditEncounter.setBackground(new java.awt.Color(0, 204, 204));
+        btnEditEncounter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEditEncounter.setText("Edit");
         btnEditEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,6 +197,8 @@ public class DoctorPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdateEncounter.setBackground(new java.awt.Color(0, 204, 204));
+        btnUpdateEncounter.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnUpdateEncounter.setText("Update");
         btnUpdateEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

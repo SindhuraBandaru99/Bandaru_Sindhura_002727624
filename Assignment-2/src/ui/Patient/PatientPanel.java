@@ -153,6 +153,10 @@ public class PatientPanel extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         tablePatientDetails = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
+        btnGetDoctors.setBackground(new java.awt.Color(0, 204, 204));
+        btnGetDoctors.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnGetDoctors.setText("Get Doctors");
         btnGetDoctors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +210,8 @@ public class PatientPanel extends javax.swing.JPanel {
 
         lblEncounterDoctorName.setText("Doctor Name");
 
+        btnBookAppointment.setBackground(new java.awt.Color(0, 204, 204));
+        btnBookAppointment.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnBookAppointment.setText("Book Appointment");
         btnBookAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,6 +219,8 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         });
 
+        btnGetEncounterHistory.setBackground(new java.awt.Color(0, 204, 204));
+        btnGetEncounterHistory.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnGetEncounterHistory.setText("Get Encounter History");
         btnGetEncounterHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,6 +284,8 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         });
 
+        btnEditPatient.setBackground(new java.awt.Color(0, 204, 204));
+        btnEditPatient.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEditPatient.setText("Edit");
         btnEditPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,6 +293,8 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdatePatient.setBackground(new java.awt.Color(0, 204, 204));
+        btnUpdatePatient.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnUpdatePatient.setText("Update");
         btnUpdatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

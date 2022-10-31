@@ -39,9 +39,16 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
         jButtonAddCommunity = new javax.swing.JButton();
         jButtonAddCity = new javax.swing.JButton();
         btnLogoutCommunityAdminPanel = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+
+        jSplitPaneCommunity.setBackground(new java.awt.Color(0, 153, 153));
+
+        jButtonAddCommunity.setBackground(new java.awt.Color(0, 204, 204));
+        jButtonAddCommunity.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonAddCommunity.setText("Add Community");
         jButtonAddCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,6 +56,8 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        jButtonAddCity.setBackground(new java.awt.Color(0, 204, 204));
+        jButtonAddCity.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonAddCity.setText("Add City");
         jButtonAddCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +65,8 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnLogoutCommunityAdminPanel.setBackground(new java.awt.Color(0, 204, 204));
+        btnLogoutCommunityAdminPanel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLogoutCommunityAdminPanel.setText("Logout");
         btnLogoutCommunityAdminPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +83,7 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
                 .addGroup(jPanelCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButtonAddCity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonAddCommunity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
             .addGroup(jPanelCommunityLayout.createSequentialGroup()
                 .addComponent(btnLogoutCommunityAdminPanel)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -91,19 +102,28 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
 
         jSplitPaneCommunity.setTopComponent(jPanelCommunity);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("COMMUNITY ADMIN PANEL");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addContainerGap()
                 .addComponent(jSplitPaneCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+                .addGap(18, 18, 18))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(366, 366, 366)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSplitPaneCommunity)
                 .addContainerGap())
         );
@@ -121,7 +141,7 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGap(0, 558, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -203,6 +223,7 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnLogoutCommunityAdminPanel;
     private javax.swing.JButton jButtonAddCity;
     private javax.swing.JButton jButtonAddCommunity;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelCommunity;
     private javax.swing.JSplitPane jSplitPaneCommunity;
